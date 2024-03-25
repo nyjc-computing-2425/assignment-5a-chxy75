@@ -1,4 +1,7 @@
-def to_hms(seconds: int) -> list:
+from os import error
+
+
+def to_hms(seconds:int) -> list:
     """
     Converts seconds to hours, minutes, and seconds, and returns it as a list.
 
@@ -21,5 +24,26 @@ def to_hms(seconds: int) -> list:
     [1, 59, 59]
     """
     # Type your code below
+    print(type(seconds))
+    valid = True
+    
+    if (float(seconds).is_integer) and (float(seconds) >= 0):
+      valid = True
+    else:
+      valid = False
+
+    if valid is True:
+      minutes, seconds = divmod(int(seconds), int(60))
+      #print(minutes, seconds)
+      hours, minutes = divmod(int(minutes), int(60))
+      #print(minutes,60)
+      list = [hours, minutes, seconds]
+      return list
+    else:
+      print('Unsupported input type')
+      
     pass
+
+
+
 
